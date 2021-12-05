@@ -19,10 +19,22 @@ section{
 
 .section-1 {
 	background: #063647;
+	padding-top: 0;
+	padding-bottom: 1rem;
 }
 
-.section-2 {
-	background-color: #052D3D;
+.section-21 {
+	background-color: #052e3d;
+}
+
+.section-22 {
+	background-color: #042733;
+}
+.section-23 {
+	background-color: #03242f;
+}
+.section-24 {
+	background-color: #031f29;
 }
 
 .section-3 {
