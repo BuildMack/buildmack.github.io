@@ -18,9 +18,13 @@ section{
 }
 
 .section-1 {
-	background: #063647;
+	background: #073f54;
 	padding-top: 0;
 	padding-bottom: 1rem;
+}
+
+.section-20 {
+	background-color: #063647;
 }
 
 .section-21 {
