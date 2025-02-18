@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Travel Memories</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .travel-photo {
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .travel-photo:hover {
+      transform: scale(1.05);
+    }
+    .modal-content p.image {
+      margin: 0;
+      padding: 0;
+    }
+    .modal-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100vw;
+      height: 100vh;
+      padding: 0;
+    }
+    .modal-image {
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain;
+    }
+  </style>
+</head>
+<body class="void-background">
+  <nav class="nav container void-background">
+    <div class="nav-left">
+      <a href="https://github.com/BuildMack" class="nav-item">
+        <span class="icon">
+          <i class="fa fa-github"></i>
+        </span>
+      </a>
+      <a href="https://www.linkedin.com/in/mitchellsell/" class="nav-item">
+        <span class="icon">
+          <i class="fa fa-linkedin"></i>
+        </span>
+      </a>
+    </div>
+    <div class="nav-right nav-menu">
+      <a class="nav-item" href="index.html">Home</a>
+    </div>
+    <span class="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </span>
+  </nav>
+  <section class="section void-background">
+    <div class="container">
+      <h1 class="title has-text-centered">Travel Memories</h1>
+      <div class="columns is-multiline" id="photoGrid"></div>
+    </div>
+  </section>
+  <div class="modal" id="imageModal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <img src="" alt="Enlarged Photo" id="modalImage" class="modal-image">
+    </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div>
+  <footer class="section has-text-centered">
+    <p>Thank you for visiting!</p>
+  </footer>
+  <script>
+    const photos = [
+      { src: "assets/img/thailand.jpeg", description: "Railay Beach in Thailand. My fiance and I travelled from the south to the north of Thailand." },
+      { src: "assets/img/grandcanyon.jpeg", description: "The South Rim of Grand Canyon National Park on a camping trip." },
+      { src: "assets/img/england.jpeg", description: "A quick visit to Big Ben on a layover in London, England." },
+      { src: "assets/img/vietnam.jpeg", description: "A trip from the north to south of Vietnam starting in Ha Giang and ending in Ho Chi Min City." },
+      { src: "assets/img/italy.jpeg", description: "Hiking and staying in a mountain cabin in northern Italy." },
+      { src: "assets/img/britishcolumbia.jpeg", description: "British Columbia" },
+      { src: "assets/img/hungary.jpeg", description: "Hungary" },
+      { src: "assets/img/alaska.jpeg", description: "Alaska" },
+      { src: "assets/img/singapore.jpeg", description: "Singapore" },
+      { src: "assets/img/scottland.jpeg", description: "Scottland" },
+      { src: "assets/img/iceland.jpeg", description: "Iceland" },
+      { src: "assets/img/czech.jpeg", description: "Czech" },
+      { src: "assets/img/zion.jpeg", description: "Zion" },
+      { src: "assets/img/costarica.jpeg", description: "Costa Rica" },
+      { src: "assets/img/netherlands.jpeg", description: "Netherlands" }
+    ];
+    const photoGrid = document.getElementById('photoGrid');
+    photos.forEach((photo, index) => {
+      const col = document.createElement('div');
+      col.className = 'column is-one-third';
+      col.innerHTML = `
+        <figure class="image">
+          <img src="${photo.src}" alt="${photo.description}" class="travel-photo">
+        </figure>
+        <p class="has-text-centered">${photo.description}</p>
+      `;
+      photoGrid.appendChild(col);
+    });
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const closeModalButton = document.querySelector('.modal-close');
+    const modalBackground = document.querySelector('.modal-background');
+    function openModal(src) {
+      modal.classList.add('is-active');
+      modalImage.src = src;
+    }
+    function closeModal() {
+      modal.classList.remove('is-active');
+      modalImage.src = '';
+    }
+    document.addEventListener('click', function(e) {
+      if (e.target && e.target.classList.contains('travel-photo')) {
+        openModal(e.target.src);
+      }
+    });
+    closeModalButton.addEventListener('click', closeModal);
+    modalBackground.addEventListener('click', closeModal);
+  </script>
+</body>
+</html>
