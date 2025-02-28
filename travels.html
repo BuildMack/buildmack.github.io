@@ -10,6 +10,9 @@
     .travel-photo {
       cursor: pointer;
       transition: transform 0.2s;
+      width: 100%;
+      height: 200px; /* fixed height for uniform appearance */
+      object-fit: cover; /* ensures the image fills the space while cropping */
     }
     .travel-photo:hover {
       transform: scale(1.05);
@@ -69,16 +72,16 @@
     </div>
     <button class="modal-close is-large" aria-label="close"></button>
   </div>
-  <footer class="section has-text-centered">
+  <footer class="section has-text-centered void-background">
     <p>Thank you for visiting!</p>
   </footer>
   <script>
     const photos = [
       { src: "assets/img/thailand.jpeg", description: "Railay Beach in Thailand. My fiance and I travelled from the south to the north of Thailand." },
       { src: "assets/img/grandcanyon.jpeg", description: "The South Rim of Grand Canyon National Park on a camping trip." },
-      { src: "assets/img/england.jpeg", description: "A quick visit to Big Ben on a layover in London, England." },
-      { src: "assets/img/vietnam.jpeg", description: "A trip from the north to south of Vietnam starting in Ha Giang and ending in Ho Chi Min City." },
-      { src: "assets/img/italy.jpeg", description: "Hiking and staying in a mountain cabin in northern Italy." },
+      { src: "assets/img/england.jpg", description: "A quick visit to Big Ben on a layover in London, England." },
+      { src: "assets/img/vietnam.dng", description: "Ninh Binh in Vietnam. A trip from the north to south of Vietnam starting in Ha Giang and ending in Ho Chi Min City." },
+      { src: "assets/img/italy.jpg", description: "Florence in Italy. On our way to visit and stay with family we got to spend a few days in hands down the most beautiful city." },
       { src: "assets/img/britishcolumbia.jpeg", description: "British Columbia" },
       { src: "assets/img/hungary.jpeg", description: "Hungary" },
       { src: "assets/img/alaska.jpeg", description: "Alaska" },
@@ -86,7 +89,7 @@
       { src: "assets/img/scottland.jpeg", description: "Scottland" },
       { src: "assets/img/iceland.jpeg", description: "Iceland" },
       { src: "assets/img/czech.jpeg", description: "Czech" },
-      { src: "assets/img/zion.jpeg", description: "Zion" },
+      { src: "assets/img/zion.jpeg", description: "Zion National Park on a camping trip in Utah. This is my favourite national park." },
       { src: "assets/img/costarica.jpeg", description: "Costa Rica" },
       { src: "assets/img/netherlands.jpeg", description: "Netherlands" }
     ];
